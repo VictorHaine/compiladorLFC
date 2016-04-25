@@ -6,10 +6,27 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		2FFF83BB1CCDDC0B008C2D43 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
+		2FFF83BC1CCDDC0B008C2D43 /* input */ = {isa = PBXFileReference; lastKnownFileType = folder; path = input; sourceTree = "<group>"; };
+		2FFF83BD1CCDDC0B008C2D43 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2FFF83BE1CCDDC0B008C2D43 /* links */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = links; sourceTree = "<group>"; };
+		2FFF83BF1CCDDC0B008C2D43 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		2FFF83C01CCDDC0B008C2D43 /* obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obj; sourceTree = "<group>"; };
+		2FFF83C11CCDDC0B008C2D43 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		2F3BEFAC1CCD84FA00273CF5 = {
 			isa = PBXGroup;
 			children = (
+				2FFF83BB1CCDDC0B008C2D43 /* bin */,
+				2FFF83BC1CCDDC0B008C2D43 /* input */,
+				2FFF83BD1CCDDC0B008C2D43 /* LICENSE */,
+				2FFF83BE1CCDDC0B008C2D43 /* links */,
+				2FFF83BF1CCDDC0B008C2D43 /* Makefile */,
+				2FFF83C01CCDDC0B008C2D43 /* obj */,
+				2FFF83C11CCDDC0B008C2D43 /* src */,
 			);
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/victorhaine/Development/C/FIAP/CompiladorLFC;
 			dependencies = (
 			);
 			name = CompiladorLFC;
@@ -177,6 +195,7 @@
 				2F3BEFB61CCD84FA00273CF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
