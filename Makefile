@@ -27,8 +27,8 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	echo "\nArquivo "$<" compilado com sucesso."
 
 clean:
-	@$(shell find $(OBJDIR)/ * -type f | xargs -0 /bin/rm -f)
-	@$(shell find $(BINDIR)/ * -type f | xargs -0 /bin/rm -f)
+	@$(shell find $(OBJDIR)/ -iname "*.o" | xargs -0 /bin/rm -f)
+	@$(shell find $(BINDIR)/ | xargs -0 /bin/rm -f)
 	clear
 	@echo "\nCompilador LFC\n"
 	@echo "Limpeza realizada com sucesso!"
