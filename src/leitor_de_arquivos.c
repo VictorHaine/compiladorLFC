@@ -21,8 +21,16 @@ int carregar_arquivo(struct arquivo *p_arquivo, char *p_caminho)
     if (p_arquivo->tamanho == -1)
         return 0;
     
-    p_arquivo->conteudo = malloc(p_arquivo->tamanho);
-    fread(p_arquivo->conteudo, p_arquivo->tamanho+1, 1, f);
+    p_arquivo->conteudo = malloc(sizeof(char) * (p_arquivo->tamanho+1));
+    size_t newLen = fread(p_arquivo->conteudo, sizeof(char), p_arquivo->tamanho, f);
+    if(newLen == 0)
+    {
+        printf("problema");
+    }
+    else
+    {
+        p_arquivo->conteudo[++newLen] = '\0';
+    }
     fclose(f);
     
     return 1;

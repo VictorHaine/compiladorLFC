@@ -22,14 +22,19 @@ void append(char *s, char c)
     if(s == NULL)
         return;
     
-    int len = strlen(s);
-    s[len] = c;
-    s[len+1] = '\0';
+    for (;*s;s++); // note the terminating semicolon here. 
+    *s++ = c; 
+    *s++ = 0;
+    
+    // int len = strlen(s);
+    // s[len] = c;
+    //s[len+1] = '\0';
 }
 
 void clean(char **s)
 {
-    *s = malloc(sizeof(char) * 100);
+    *s = calloc(sizeof(char), 100);
+    //*s = malloc(sizeof(char) * 1000);
 }
 
 /**
@@ -72,9 +77,13 @@ struct container_lexico* obter_tokens(char *p_caminho)
     
     // Lista de Tokens
     struct lista_de_tokens *lista_de_tokens = malloc(sizeof(struct lista_de_tokens));
+    lista_de_tokens->inicio = NULL;
+    lista_de_tokens->atual = NULL;
     
     // Tabela de Símbolos
     struct tabela_de_simbolos *tabela_de_simbolos = malloc(sizeof(struct tabela_de_simbolos));
+    tabela_de_simbolos->inicio = NULL;
+    tabela_de_simbolos->atual = NULL;
     
     for (int i = 0; i < arq->tamanho; i++)
     {
