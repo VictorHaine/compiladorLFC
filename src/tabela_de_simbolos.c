@@ -14,24 +14,6 @@
 #define KWHT  "\e[37m"
 #define RESET "\e[0m"
 
-//struct simbolo
-//{
-//    char *lexema;
-//    char *valor;
-//    char *atributos;
-//    
-//    struct simbolo *prox;
-//    struct simbolo *ant;
-//};
-//
-//struct tabela_de_simbolos
-//{
-//    struct simbolo *inicio;
-//    struct simbolo *atual;
-//    unsigned int n_elementos;
-//};
-
-
 int inserir_simbolo(struct tabela_de_simbolos *p_tabela, struct simbolo *p_simbolo)
 {
     if(p_tabela->inicio == NULL)
