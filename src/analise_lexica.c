@@ -298,5 +298,8 @@ struct container_lexico* obter_tokens(char *p_caminho)
     
     listar_tokens(lista_de_tokens);
     
+    container->lista_de_tokens = lista_de_tokens;
+    container->tabela_de_simbolos = tabela_de_simbolos;
+    
     return container;
 }

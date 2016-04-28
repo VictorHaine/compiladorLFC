@@ -58,6 +58,7 @@ struct simbolo* obter_simbolo(struct tabela_de_simbolos *p_tabela, char *lexema,
     while (simbolo_t != NULL) {
         if(strcmp(lexema, simbolo_t->lexema) == 0)
         {
+            
             break;
         }
         
