@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <time.h>
 #include "analise_lexica.h"
 #include "leitor_de_arquivos.h"
 #include "tabela_de_simbolos.h"
@@ -291,8 +292,15 @@ struct container_lexico* obter_tokens(char *p_caminho)
         }
     }
     
-    listar_tokens(lista_de_tokens, "output/output1.txt");
-    listar_simbolos(tabela_de_simbolos, "output/output1.txt");
+    
+    char *caminhoOutput = calloc(sizeof(char), 255);
+    const time_t timer = time(NULL);
+    const struct tm *agora = gmtime(&timer);
+    sprintf(caminhoOutput, "../output/%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
+    
+    
+    listar_tokens(lista_de_tokens, caminhoOutput);
+    listar_simbolos(tabela_de_simbolos, caminhoOutput);
     
     container->lista_de_tokens = lista_de_tokens;
     container->tabela_de_simbolos = tabela_de_simbolos;

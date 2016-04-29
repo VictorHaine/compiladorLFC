@@ -78,12 +78,14 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
         p = p->prox;
     }
 
-    if(p_caminho_arquivo == NULL)
+    if(p_caminho_arquivo != NULL)
     {
         int len = 0;
         int tamanho_buffer = 4096;
         char *buffer = calloc(sizeof(char), tamanho_buffer);
+        p = p_lista->inicio;
         
+        len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Lista de Tokens ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
         len += sprintf(len+buffer, "\n ______________________________________________________________________________________________________ \n");
         len += sprintf(len+buffer, "|  TOKEN |     Tipo de Lexema     |  Lexema  | Linha | Coluna |     Valor    | End. Tabela de Símbolos |\n");
         len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \n");
@@ -111,6 +113,6 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
         
         len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \n");
         
-        inserir_arquivo(buffer, "output/test1b.txt");
+        inserir_arquivo(buffer, p_caminho_arquivo);
     }   
 }

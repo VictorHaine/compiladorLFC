@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "src/tabela_de_simbolos.c"
-            timestampString = "483320310.144637"
+            filePath = "src/token.c"
+            timestampString = "483652032.102554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "obter_simbolo()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "listar_tokens()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

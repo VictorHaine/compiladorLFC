@@ -90,12 +90,12 @@ void imprimir(enum cor p_cor, const char *format, ... )
     #endif
 }
 
-void inserir_arquivo(char *p_conteudo, char *p_caminho)
+int inserir_arquivo(char *p_conteudo, char *p_caminho)
 {
     if (p_caminho == NULL)
         return 0;
     
-    FILE *f = fopen(p_caminho, "w+");
+    FILE *f = fopen(p_caminho, "a");
     
     if (!f)
         return 0;
@@ -105,7 +105,7 @@ void inserir_arquivo(char *p_conteudo, char *p_caminho)
     char s[64];
     strftime(s, sizeof(s), "%c", tm);
     
-    fprintf(f, "Arquivo criado em: %s - Compilador LFC - 4ECR\n\n", s);
+    fprintf(f, "%s - Compilador LFC - 4ECR\n\n", s);
     fprintf(f, "%s", p_conteudo);
     
     fclose(f);
