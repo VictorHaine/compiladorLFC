@@ -292,7 +292,7 @@ struct container_lexico* obter_tokens(char *p_caminho)
     }
     
     listar_tokens(lista_de_tokens, "output/output1.txt");
-    listar_simbolos(tabela_de_simbolos, NULL);
+    listar_simbolos(tabela_de_simbolos, "output/output1.txt");
     
     container->lista_de_tokens = lista_de_tokens;
     container->tabela_de_simbolos = tabela_de_simbolos;

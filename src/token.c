@@ -69,18 +69,16 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
     struct token *p = p_lista->inicio;
     int i = 0;
     
-    if(p_caminho_arquivo == NULL)
-    {
-        while (p != NULL) {
-            imprimir(COR_AZUL, "\nToken %03d - Tipo Lexema: %s\n", i, tipo_lexema_nome[p->tipo_lexema]);
-            imprimir(COR_MAGENTA, "%d : %d - Lexema: %s, Valor: %s, End. Tabela de Símbolos: %p\n",
-                            p->linha, p->coluna, p->simbolo->lexema, p->simbolo->valor, &p->simbolo);
-            
-            i++;
-            p = p->prox;
-        }
+    while (p != NULL) {
+        imprimir(COR_AZUL, "\nToken %03d - Tipo Lexema: %s\n", i, tipo_lexema_nome[p->tipo_lexema]);
+        imprimir(COR_MAGENTA, "%d : %d - Lexema: %s, Valor: %s, End. Tabela de Símbolos: %p\n",
+                        p->linha, p->coluna, p->simbolo->lexema, p->simbolo->valor, &p->simbolo);
+        
+        i++;
+        p = p->prox;
     }
-    else
+
+    if(p_caminho_arquivo == NULL)
     {
         int len = 0;
         int tamanho_buffer = 4096;
@@ -114,9 +112,5 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
         len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \n");
         
         inserir_arquivo(buffer, "output/test1b.txt");
-        // printf("%s", buffer);
-        
-    }
-    
-    
+    }   
 }

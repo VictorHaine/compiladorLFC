@@ -95,7 +95,7 @@ void inserir_arquivo(char *p_conteudo, char *p_caminho)
     if (p_caminho == NULL)
         return 0;
     
-    FILE *f = fopen(p_caminho, "w");
+    FILE *f = fopen(p_caminho, "w+");
     
     if (!f)
         return 0;
