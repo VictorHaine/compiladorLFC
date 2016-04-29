@@ -1,45 +1,40 @@
-[H[2J[31m    __    ______ _____            __ __  _____ _____ ___   
-[0m[31m   / /   / ____/ ____/           / // / / ____/ ____/ __ \ 
-[0m[31m  / /   / /_  / /      ______   / // /_/ __/ / /   / /_/ /  
-[0m[31m / /___/ __/ / /___   /_____/  /__  __/ /___/ /___/ _, _/   
-[0m[31m/_____/_/    \____/              /_/ /_____/\____/_/ |_|    
-[0m[31m                                                  V 1.0    
-[0m[31m                                                            
-[0m[35mArquivo "input/test1b.txt" - 42 bytes
+Arquivo criado em: Fri Apr 29 07:46:51 2016 - Compilador LFC - 4ECR
 
-[0m[34m
-Conteúdo:[0m[36m
-// teste de comentários
-
-_ab=1<2 && 2>3;
-[0m[34m
-Token 000 - Tipo Lexema: ID
-[0m[35m3 : 0 - Lexema: _ab, Valor: (null), End. Tabela de Símbolos: 0x183b108
-[0m[34m
-Token 001 - Tipo Lexema: Operador Atribuição
-[0m[35m3 : 3 - Lexema: =, Valor: (null), End. Tabela de Símbolos: 0x183b1d8
-[0m[34m
-Token 002 - Tipo Lexema: Inteiro
-[0m[35m3 : 4 - Lexema: 1, Valor: 1, End. Tabela de Símbolos: 0x183b238
-[0m[34m
-Token 003 - Tipo Lexema: Operador Menor que
-[0m[35m3 : 5 - Lexema: <, Valor: (null), End. Tabela de Símbolos: 0x183b3b8
-[0m[34m
-Token 004 - Tipo Lexema: Inteiro
-[0m[35m3 : 6 - Lexema: 2, Valor: 2, End. Tabela de Símbolos: 0x183b488
-[0m[34m
-Token 005 - Tipo Lexema: Operador E
-[0m[35m3 : 7 - Lexema: &&, Valor: (null), End. Tabela de Símbolos: 0x183b558
-[0m[34m
-Token 006 - Tipo Lexema: Inteiro
-[0m[35m3 : 9 - Lexema: 2, Valor: 2, End. Tabela de Símbolos: 0x183b628
-[0m[34m
-Token 007 - Tipo Lexema: Operador Maior que
-[0m[35m3 : 10 - Lexema: >, Valor: (null), End. Tabela de Símbolos: 0x183b6c8
-[0m[34m
-Token 008 - Tipo Lexema: Inteiro
-[0m[35m3 : 11 - Lexema: 3, Valor: 3, End. Tabela de Símbolos: 0x183b798
-[0m[34m
-Token 009 - Tipo Lexema: Fim de Declaração
-[0m[35m3 : 12 - Lexema: ;, Valor: (null), End. Tabela de Símbolos: 0x183b868
-[0m
+ ______________________________________________________________________________________________________ 
+|  TOKEN |     Tipo de Lexema     |  Lexema  | Linha | Coluna |     Valor    | End. Tabela de Símbolos |
+ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+|   00   | ID                     |  _ab     |  003  |  000   |  (null)      | 0x1e01108               |
+|   01   | Operador Atribuicao    |  =       |  003  |  003   |  (null)      | 0x1e011d8               |
+|   02   | Inteiro                |  1       |  003  |  004   |  1           | 0x1e01238               |
+|   03   | Operador Menor que     |  <       |  003  |  005   |  (null)      | 0x1e013d8               |
+|   04   | Inteiro                |  2       |  003  |  006   |  2           | 0x1e014a8               |
+|   05   | Operador E             |  &&      |  003  |  007   |  (null)      | 0x1e01578               |
+|   06   | Inteiro                |  2       |  003  |  009   |  2           | 0x1e01648               |
+|   07   | Operador Maior que     |  >       |  003  |  010   |  (null)      | 0x1e016e8               |
+|   08   | Inteiro                |  3       |  003  |  011   |  3           | 0x1e017b8               |
+|   09   | Fim de Declaracao      |  ;       |  003  |  012   |  (null)      | 0x1e01888               |
+|   10   | ID                     |  f       |  004  |  000   |  (null)      | 0x1e01958               |
+|   11   | Operador Atribuicao    |  =       |  004  |  001   |  (null)      | 0x1e01a28               |
+|   12   | Inteiro                |  65      |  004  |  002   |  65          | 0x1e01ac8               |
+|   13   | Operador Soma          |  +       |  004  |  004   |  (null)      | 0x1e01b98               |
+|   14   | Inteiro                |  4814    |  004  |  005   |  4814        | 0x1e01c68               |
+|   15   | Operador Subtracao     |  -       |  004  |  009   |  (null)      | 0x1e01d38               |
+|   16   | Inteiro                |  51      |  004  |  010   |  51          | 0x1e01e08               |
+|   17   | Operador Multiplicacao |  *       |  004  |  012   |  (null)      | 0x1e01ed8               |
+|   18   | Abre Parenteses        |  (       |  004  |  013   |  (null)      | 0x1e01fa8               |
+|   19   | Inteiro                |  215     |  004  |  014   |  215         | 0x1e02078               |
+|   20   | Fecha Parenteses       |  )       |  004  |  017   |  (null)      | 0x1e02148               |
+|   21   | Fim de Declaracao      |  ;       |  004  |  018   |  (null)      | 0x1e02218               |
+|   22   | ID                     |  c       |  005  |  000   |  (null)      | 0x1e022b8               |
+|   23   | Operador Atribuicao    |  =       |  005  |  001   |  (null)      | 0x1e02388               |
+|   24   | Inteiro                |  15      |  005  |  002   |  15          | 0x1e02428               |
+|   25   | Operador Soma          |  +       |  005  |  004   |  (null)      | 0x1e024f8               |
+|   26   | Inteiro                |  44      |  005  |  005   |  44          | 0x1e02598               |
+|   27   | Operador Subtracao     |  -       |  005  |  007   |  (null)      | 0x1e02668               |
+|   28   | Abre Parenteses        |  (       |  005  |  008   |  (null)      | 0x1e02708               |
+|   29   | Inteiro                |  5145    |  005  |  009   |  5145        | 0x1e027a8               |
+|   30   | Operador Soma          |  +       |  005  |  013   |  (null)      | 0x1e02878               |
+|   31   | Inteiro                |  455     |  005  |  014   |  455         | 0x1e02918               |
+|   32   | Fecha Parenteses       |  )       |  005  |  017   |  (null)      | 0x1e029e8               |
+|   33   | Fim de Declaracao      |  ;       |  005  |  018   |  (null)      | 0x1e02a88               |
+ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 

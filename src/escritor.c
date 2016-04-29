@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <escritor.h>
+#include <time.h>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -87,4 +88,27 @@ void imprimir(enum cor p_cor, const char *format, ... )
     #else
         printf("%s%s%s", traduzir_cor_unix(p_cor), buffer, traduzir_cor_unix(COR_PADRAO));
     #endif
+}
+
+void inserir_arquivo(char *p_conteudo, char *p_caminho)
+{
+    if (p_caminho == NULL)
+        return 0;
+    
+    FILE *f = fopen(p_caminho, "w");
+    
+    if (!f)
+        return 0;
+    
+    time_t t = time(NULL);
+    struct tm *tm = localtime(&t);
+    char s[64];
+    strftime(s, sizeof(s), "%c", tm);
+    
+    fprintf(f, "Arquivo criado em: %s - Compilador LFC - 4ECR\n\n", s);
+    fprintf(f, "%s", p_conteudo);
+    
+    fclose(f);
+    
+    return 1;
 }

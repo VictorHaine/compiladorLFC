@@ -58,7 +58,7 @@ struct lista_de_tokens
 int inserir_token(struct lista_de_tokens *p_lista, struct token *p_token);
 int remover_token(struct lista_de_tokens *p_lista, struct token *p_token);
 struct token* buscar_token(struct lista_de_tokens *p_lista, struct token *p_token);
-void listar_tokens(struct lista_de_tokens *p_lista);
+void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo);
 
 #endif
 
