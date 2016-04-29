@@ -5,6 +5,14 @@
 #include "tabela_de_simbolos.h"
 #include "token.h"
 
+/**
+ *  Função para inserir símbolos na tabela de símbolos.
+ *
+ *  @param p_tabela  Tabela de Símbolos
+ *  @param p_simbolo Símbolo
+ *
+ *  @return 1 = sucesso
+ */
 int inserir_simbolo(struct tabela_de_simbolos *p_tabela, struct simbolo *p_simbolo)
 {
     if(p_tabela->inicio == NULL)
@@ -24,6 +32,16 @@ int inserir_simbolo(struct tabela_de_simbolos *p_tabela, struct simbolo *p_simbo
     return 1;
 }
 
+/**
+ *  Função para buscar um símbolo existente, ou criar um novo símbolo caso não seja encontrado, para
+ *  um dado lexema.
+ *
+ *  @param p_tabela Tabela de Símbolos
+ *  @param lexema   Lexema a ser buscado
+ *  @param valor    Valor para o símbolo
+ *
+ *  @return struct simbolo  Retorna o símbolo correspondente ao lexema buscado.
+ */
 struct simbolo* obter_simbolo(struct tabela_de_simbolos *p_tabela, char *lexema, char *valor)
 {
     struct simbolo *simbolo_t = p_tabela->inicio;
@@ -49,12 +67,20 @@ struct simbolo* obter_simbolo(struct tabela_de_simbolos *p_tabela, char *lexema,
     return simbolo_t;
 }
 
+/**
+ *  Procedimento para exibir os símbolos existentes na Tabela de Símbolos, e caso o parâmetro
+ *  p_caminho_arquivo seja diferente de nulo, escrever a tabela de símbolos no arquivo.
+ *
+ *  @param p_tabela          Tabela de Símbolos
+ *  @param p_caminho_arquivo Caminho do arquivo para output dos símbolos
+ */
 void listar_simbolos(struct tabela_de_simbolos *p_tabela, char *p_caminho_arquivo)
 {
     
     struct simbolo *p = p_tabela->inicio;
     int i = 0;
     
+    // Imprime os Símbolos no STDOUT
     while (p != NULL) {
         imprimir(COR_AZUL, "\nSimbolo %03d -  Lexema: %s - Valor: %s\n", i, p->lexema, p->valor);
         imprimir(COR_VERDE, "Ant: %p , Prox: %p\n", i, p->ant, p->prox);
@@ -63,6 +89,7 @@ void listar_simbolos(struct tabela_de_simbolos *p_tabela, char *p_caminho_arquiv
         p = p->prox;
     }
     
+    // Imprime os Símbolos no arquivo correspondente ao p_caminho_arquivo
     if(p_caminho_arquivo != NULL)
     {
         int len = 0;
@@ -79,6 +106,7 @@ void listar_simbolos(struct tabela_de_simbolos *p_tabela, char *p_caminho_arquiv
             len += sprintf(len+buffer, "|   %-3i   |      %-15p      |    %-4s    |   %-6s    |  %-14p  |  %-14p  |\n",
                            i, &p, p->lexema, p->valor, p->prox, p->ant);
             
+            // Checa se o buffer já foi consumidor em mais de 2/3. Caso positivo, dobra o tamanho do buffer.
             if(len > tamanho_buffer*2/3)
             {
                 tamanho_buffer = tamanho_buffer * 2;
@@ -96,6 +124,7 @@ void listar_simbolos(struct tabela_de_simbolos *p_tabela, char *p_caminho_arquiv
         
         len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \n");
         
+        // Função para escrever no arquivo correspondente ao p_caminho_arquivo// Função para escrever no arquivo correspondente ao p_caminho_arquivo
         inserir_arquivo(buffer, p_caminho_arquivo);
     }
 }

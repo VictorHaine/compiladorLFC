@@ -6,6 +6,14 @@
 #include <windows.h>
 #endif
 
+/**
+ *  Função para traduzir o tipo enum cor para os bits configuradores de cor no
+ *  ambiente Windows.
+ *
+ *  @param p_cor Cor
+ *
+ *  @return Bits equivalentes ao enum cor p_cor
+ */
 int traduzir_cor_windows(enum cor p_cor)
 {
     #ifdef _WIN32
@@ -26,9 +34,19 @@ int traduzir_cor_windows(enum cor p_cor)
         default:
             return FOREGROUND_RED ^ FOREGROUND_GREEN ^ FOREGROUND_BLUE;
     }
-    #endif
+#else
+    return 0;
+#endif
 }
 
+/**
+ *  Função para traduzir o tipo enum cor para os characteres de controle
+ *  de cor no ambiente *Unix.
+ *
+ *  @param p_cor cor
+ *
+ *  @return Caracteres de configuração equivalentes ao enum cor p_cor
+ */
 char *traduzir_cor_unix(enum cor p_cor)
 {
     switch(p_cor)
@@ -65,9 +83,16 @@ char *traduzir_cor_unix(enum cor p_cor)
     }
 }
 
+/**
+ *  Procedimento universal para impressão de strings no STDOUT.
+ *
+ *  @param p_cor  Cor
+ *  @param format Formto
+ *  @param ...    Argumentos Variáveis
+ */
 void imprimir(enum cor p_cor, const char *format, ... )
 {
-    char buffer[256];
+    char buffer[4096];
     va_list args;
     va_start (args, format);
     vsprintf (buffer,format, args);
@@ -90,6 +115,14 @@ void imprimir(enum cor p_cor, const char *format, ... )
     #endif
 }
 
+/**
+ *  Função para escrever a string enviada em um certo arquivo.
+ *
+ *  @param p_conteudo Conteudo a ser escrito
+ *  @param p_caminho  Caminho do arquivo a ser escrito
+ *
+ *  @return 1 = sucesso
+ */
 int inserir_arquivo(char *p_conteudo, char *p_caminho)
 {
     if (p_caminho == NULL)

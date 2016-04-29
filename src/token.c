@@ -35,6 +35,14 @@ char* tipo_lexema_nome[] = {
     "Fim de Loop"
 };
 
+/**
+ *  Função para inserir um Token em uma lista de tokens
+ *
+ *  @param p_lista Lista de Tokens
+ *  @param p_token Token
+ *
+ *  @return 1 = sucesso
+ */
 int inserir_token(struct lista_de_tokens *p_lista, struct token *p_token)
 {
     if(p_lista->inicio == NULL)
@@ -54,21 +62,48 @@ int inserir_token(struct lista_de_tokens *p_lista, struct token *p_token)
     return 1;
 }
 
+/**
+ *  TODO:
+ *  Função para remover um Token de uma lista de tokens
+ *
+ *  @param p_lista Lista de Tokens
+ *  @param p_token Token
+ *
+ *  @return 1 = sucesso
+ */
 int remover_token(struct lista_de_tokens *p_lista, struct token *p_token)
 {
     return -1;
 }
 
+/**
+ *  TODO:
+ *  Função para buscar um Token em uma lista de tokens
+ *
+ *  @param p_lista Lista de Tokens
+ *  @param p_token Token
+ *
+ *  @return 1 = sucesso
+ */
 struct token* buscar_token(struct lista_de_tokens *p_lista, struct token *p_token)
 {
     return NULL;
 }
 
+
+/**
+ *  Procedimento para listar os tokens existentes numa lista de tokens, e caso o parâmetro
+ *  p_caminho_arquivo seja diferente de nulo, escrever a lista de tokens no arquivo.
+ *
+ *  @param p_lista           Lista de Tokens
+ *  @param p_caminho_arquivo Caminho do arquivo para output dos tokens
+ */
 void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
 {   
     struct token *p = p_lista->inicio;
     int i = 0;
     
+    // Imprime os Tokens no STDOUT
     while (p != NULL) {
         imprimir(COR_AZUL, "\nToken %03d - Tipo Lexema: %s\n", i, tipo_lexema_nome[p->tipo_lexema]);
         imprimir(COR_MAGENTA, "%d : %d - Lexema: %s, Valor: %s, End. Tabela de Símbolos: %p\n",
@@ -78,6 +113,7 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
         p = p->prox;
     }
 
+    // Imprime os Tokens no arquivo correspondente ao p_caminho_arquivo
     if(p_caminho_arquivo != NULL)
     {
         int len = 0;
@@ -96,6 +132,7 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
                             p->simbolo->lexema, p->linha, p->coluna,
                             p->simbolo->valor, &p->simbolo);
             
+            // Checa se o buffer já foi consumidor em mais de 2/3. Caso positivo, dobra o tamanho do buffer.
             if(len > tamanho_buffer*2/3)
             {
                 tamanho_buffer = tamanho_buffer * 2;
@@ -113,6 +150,7 @@ void listar_tokens(struct lista_de_tokens *p_lista, char *p_caminho_arquivo)
         
         len += sprintf(len+buffer, " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \n");
         
+        // Função para escrever no arquivo correspondente ao p_caminho_arquivo
         inserir_arquivo(buffer, p_caminho_arquivo);
     }   
 }

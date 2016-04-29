@@ -9,19 +9,32 @@
 #include "token.h"
 #include "escritor.h"
 
+/**
+ *  Procedimento para "adicionar" um caractere no fim de uma lista
+ *  de caracteres.
+ *
+ *  @param s Lista de caracteres
+ *  @param c Caractere
+ */
 void append(char *s, char c)
 {
     if(s == NULL)
         return;
     
-    for (;*s;s++); 
+    for (;*s;s++);
+    
     *s++ = c; 
     *s++ = 0;
 }
 
+/**
+ *  Procedimento para limpar uma lista de caracteres.
+ *
+ *  @param s Endereço do endereço da lista de caracteres
+ */
 void clean(char **s)
 {
-    *s = calloc(sizeof(char), 100);
+    *s = calloc(sizeof(char), 255);
 }
 
 /**
@@ -292,18 +305,25 @@ struct container_lexico* obter_tokens(char *p_caminho)
         }
     }
     
-    
+    // Caminho do arquivo de output com a tabela de símbolos e lista de tokens
     char *caminhoOutput = calloc(sizeof(char), 255);
     const time_t timer = time(NULL);
     const struct tm *agora = gmtime(&timer);
+#ifdef _WIN32
+    sprintf(caminhoOutput, "..\output\%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
+#else
     sprintf(caminhoOutput, "../output/%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
+#endif
     
-    
+    // Listar os Tokens; Enviando no segundo parâmetro o caminho do arquivo a função escreve no arquivo a lista de tokens.
     listar_tokens(lista_de_tokens, caminhoOutput);
+    // Listar os Símbolos; Enviando no segundo parâmetro o caminho do arquivo a função escreve no arquivo a Tabela de Símbolos.
     listar_simbolos(tabela_de_simbolos, caminhoOutput);
     
+    // Atribui ao container léxico a lista de tokens e a tabela de símbolos
     container->lista_de_tokens = lista_de_tokens;
     container->tabela_de_simbolos = tabela_de_simbolos;
     
+    // Container léxico pronto.
     return container;
 }

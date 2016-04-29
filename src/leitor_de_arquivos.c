@@ -3,6 +3,15 @@
 #include "escritor.h"
 #include "leitor_de_arquivos.h"
 
+/**
+ *  Função para carregar uma struct arquivo com o conteúdo do arquivo
+ *  correspondente ao p_caminho
+ *
+ *  @param p_arquivo Estrutura do tipo arquivo para Fill
+ *  @param p_caminho Caminho do arquivo para ser utilizado como Fill
+ *
+ *  @return 1 = sucesso
+ */
 int carregar_arquivo(struct arquivo *p_arquivo, char *p_caminho)
 {
     if (p_caminho == NULL)

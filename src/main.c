@@ -5,8 +5,6 @@
 
 #define DEBUG
 
-char *caminho_do_arquivo;
-
 int main(int argc, char* argv[])
 {
     // Limpa o terminal, unix/dos.
@@ -23,10 +21,16 @@ int main(int argc, char* argv[])
 
     // Verifica se algum caminho de arquivo foi passado como argumento para o programa,
     // caso contrário carrega um caminho padrão de um arquivo de testes.
+    char *caminho_do_arquivo = NULL;
+    
     if(argv[1] != NULL)
         caminho_do_arquivo = argv[1];
     else
+#ifdef _WIN32
+        caminho_do_arquivo = "..\input\test1b.txt";
+#else
         caminho_do_arquivo = "../input/test1b.txt";
+#endif
     
     // Chama a função obter_tokens do arquivo analise_lexica.c que tem retorno um container
     // léxico, com os tokens, tabela de símbolos e ocasionalmente uma mensagem de erro.
