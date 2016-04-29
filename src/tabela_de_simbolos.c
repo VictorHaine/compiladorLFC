@@ -4,16 +4,6 @@
 #include "tabela_de_simbolos.h"
 #include "token.h"
 
-#define KNRM  "\e[0m"
-#define KRED  "\e[31m"
-#define KGRN  "\e[32m"
-#define KYEL  "\e[33m"
-#define KBLU  "\e[34m"
-#define KMAG  "\e[35m"
-#define KCYN  "\e[36m"
-#define KWHT  "\e[37m"
-#define RESET "\e[0m"
-
 int inserir_simbolo(struct tabela_de_simbolos *p_tabela, struct simbolo *p_simbolo)
 {
     if(p_tabela->inicio == NULL)

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "escritor.h"
 #include "leitor_de_arquivos.h"
 
 int carregar_arquivo(struct arquivo *p_arquivo, char *p_caminho)
@@ -25,7 +25,7 @@ int carregar_arquivo(struct arquivo *p_arquivo, char *p_caminho)
     size_t newLen = fread(p_arquivo->conteudo, sizeof(char), p_arquivo->tamanho, f);
     if(newLen == 0)
     {
-        printf("problema");
+        imprimir(COR_VERMELHO, "Ops! Ocorreu um erro ao ler o arquivo: %s\nTente novamente!", p_arquivo->caminho);
     }
     else
     {

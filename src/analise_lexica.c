@@ -6,35 +6,21 @@
 #include "leitor_de_arquivos.h"
 #include "tabela_de_simbolos.h"
 #include "token.h"
-
-#define KNRM  "\e[0m"
-#define KRED  "\e[31m"
-#define KGRN  "\e[32m"
-#define KYEL  "\e[33m"
-#define KBLU  "\e[34m"
-#define KMAG  "\e[35m"
-#define KCYN  "\e[36m"
-#define KWHT  "\e[37m"
-#define RESET "\e[0m"
+#include "escritor.h"
 
 void append(char *s, char c)
 {
     if(s == NULL)
         return;
     
-    for (;*s;s++); // note the terminating semicolon here. 
+    for (;*s;s++); 
     *s++ = c; 
     *s++ = 0;
-    
-    // int len = strlen(s);
-    // s[len] = c;
-    //s[len+1] = '\0';
 }
 
 void clean(char **s)
 {
     *s = calloc(sizeof(char), 100);
-    //*s = malloc(sizeof(char) * 1000);
 }
 
 /**
@@ -61,11 +47,11 @@ struct container_lexico* obter_tokens(char *p_caminho)
     }
     
     // Exibe o tamanho do arquivo a ser analisado em bytes.
-    printf(KMAG "Arquivo \"%s\" - %lu bytes\n\n" RESET, arq->caminho, arq->tamanho);
+    imprimir(COR_MAGENTA, "Arquivo \"%s\" - %lu bytes\n\n", arq->caminho, arq->tamanho);
     
     // Exibe o conteúdo do arquivo
-    printf(KBLU "\nConteúdo:" RESET);
-    printf(KCYN "\n%s" RESET, arq->conteudo);
+    imprimir(COR_AZUL, "\nConteúdo:");
+    imprimir(COR_CIANO, "\n%s", arq->conteudo);
     
     // Variáveis de controle de posição
     int linha = 1;

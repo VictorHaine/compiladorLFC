@@ -1,0 +1,45 @@
+[H[2J[31m    __    ______ _____            __ __  _____ _____ ___   
+[0m[31m   / /   / ____/ ____/           / // / / ____/ ____/ __ \ 
+[0m[31m  / /   / /_  / /      ______   / // /_/ __/ / /   / /_/ /  
+[0m[31m / /___/ __/ / /___   /_____/  /__  __/ /___/ /___/ _, _/   
+[0m[31m/_____/_/    \____/              /_/ /_____/\____/_/ |_|    
+[0m[31m                                                  V 1.0    
+[0m[31m                                                            
+[0m[35mArquivo "input/test1b.txt" - 42 bytes
+
+[0m[34m
+Conteúdo:[0m[36m
+// teste de comentários
+
+_ab=1<2 && 2>3;
+[0m[34m
+Token 000 - Tipo Lexema: ID
+[0m[35m3 : 0 - Lexema: _ab, Valor: (null), End. Tabela de Símbolos: 0x183b108
+[0m[34m
+Token 001 - Tipo Lexema: Operador Atribuição
+[0m[35m3 : 3 - Lexema: =, Valor: (null), End. Tabela de Símbolos: 0x183b1d8
+[0m[34m
+Token 002 - Tipo Lexema: Inteiro
+[0m[35m3 : 4 - Lexema: 1, Valor: 1, End. Tabela de Símbolos: 0x183b238
+[0m[34m
+Token 003 - Tipo Lexema: Operador Menor que
+[0m[35m3 : 5 - Lexema: <, Valor: (null), End. Tabela de Símbolos: 0x183b3b8
+[0m[34m
+Token 004 - Tipo Lexema: Inteiro
+[0m[35m3 : 6 - Lexema: 2, Valor: 2, End. Tabela de Símbolos: 0x183b488
+[0m[34m
+Token 005 - Tipo Lexema: Operador E
+[0m[35m3 : 7 - Lexema: &&, Valor: (null), End. Tabela de Símbolos: 0x183b558
+[0m[34m
+Token 006 - Tipo Lexema: Inteiro
+[0m[35m3 : 9 - Lexema: 2, Valor: 2, End. Tabela de Símbolos: 0x183b628
+[0m[34m
+Token 007 - Tipo Lexema: Operador Maior que
+[0m[35m3 : 10 - Lexema: >, Valor: (null), End. Tabela de Símbolos: 0x183b6c8
+[0m[34m
+Token 008 - Tipo Lexema: Inteiro
+[0m[35m3 : 11 - Lexema: 3, Valor: 3, End. Tabela de Símbolos: 0x183b798
+[0m[34m
+Token 009 - Tipo Lexema: Fim de Declaração
+[0m[35m3 : 12 - Lexema: ;, Valor: (null), End. Tabela de Símbolos: 0x183b868
+[0m

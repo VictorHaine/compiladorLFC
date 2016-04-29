@@ -1,20 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "escritor.h"
 #include "tabela_de_simbolos.h"
 #include "token.h"
 
-#define KNRM  "\e[0m"
-#define KRED  "\e[31m"
-#define KGRN  "\e[32m"
-#define KYEL  "\e[33m"
-#define KBLU  "\e[34m"
-#define KMAG  "\e[35m"
-#define KCYN  "\e[36m"
-#define KWHT  "\e[37m"
-#define RESET "\e[0m"
-
 char* tipo_lexema_nome[] = {
-    
     "ID",
     "Inteiro",
     "Duplo",
@@ -80,8 +70,8 @@ void listar_tokens(struct lista_de_tokens *p_lista)
     
     while (p != NULL) {
         
-        printf(KBLU "\nToken %03d - Tipo Lexema: %s\n" RESET, i, tipo_lexema_nome[p->tipo_lexema]);
-        printf(KMAG "%d : %d - Lexema: %s, Valor: %s, End. Tabela de Símbolos: %p\n" RESET,
+        imprimir(COR_AZUL, "\nToken %03d - Tipo Lexema: %s\n", i, tipo_lexema_nome[p->tipo_lexema]);
+        imprimir(COR_MAGENTA, "%d : %d - Lexema: %s, Valor: %s, End. Tabela de Símbolos: %p\n",
                         p->linha, p->coluna, p->simbolo->lexema, p->simbolo->valor, &p->simbolo);
         
         i++;

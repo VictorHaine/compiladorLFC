@@ -16,7 +16,7 @@ enum cor {
 };
 
 char *traduzir_cor_unix(enum cor p_cor);
-char *traduzir_cor_windows(enum cor p_cor);
-void imprimir(const char *format, enum cor p_cor, ... );
+int traduzir_cor_windows(enum cor p_cor);
+void imprimir(enum cor p_cor, const char *format, ... );
 
 #endif

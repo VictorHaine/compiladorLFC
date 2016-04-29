@@ -5,7 +5,7 @@
 #include <windows.h>
 #endif
 
-char *traduzir_cor_windows(enum cor p_cor)
+int traduzir_cor_windows(enum cor p_cor)
 {
     #ifdef _WIN32
     switch(p_cor)
@@ -23,7 +23,7 @@ char *traduzir_cor_windows(enum cor p_cor)
             break;
             
         default:
-            return "";
+            return FOREGROUND_RED ^ FOREGROUND_GREEN ^ FOREGROUND_BLUE;
     }
     #endif
 }
@@ -64,7 +64,7 @@ char *traduzir_cor_unix(enum cor p_cor)
     }
 }
 
-void imprimir(const char *format, enum cor p_cor, ... )
+void imprimir(enum cor p_cor, const char *format, ... )
 {
     char buffer[256];
     va_list args;
