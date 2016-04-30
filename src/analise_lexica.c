@@ -310,7 +310,7 @@ struct container_lexico* obter_tokens(char *p_caminho)
     const time_t timer = time(NULL);
     const struct tm *agora = gmtime(&timer);
 #ifdef _WIN32
-    sprintf(caminhoOutput, "..\output\%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
+    sprintf(caminhoOutput, "..\\output\\%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
 #else
     sprintf(caminhoOutput, "../output/%d_%d_%d.txt", agora->tm_mon, agora->tm_mday, agora->tm_hour);
 #endif
