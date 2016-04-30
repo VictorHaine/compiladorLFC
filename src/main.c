@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         caminho_do_arquivo = argv[1];
     else
 #ifdef _WIN32
-        caminho_do_arquivo = "..\input\test1b.txt";
+        caminho_do_arquivo = "..\\input\\test1b.txt";
 #else
         caminho_do_arquivo = "../input/test1b.txt";
 #endif
