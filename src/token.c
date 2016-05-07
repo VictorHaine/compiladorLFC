@@ -10,6 +10,7 @@ char* tipo_lexema_nome[] = {
     "Inteiro",
     "Duplo",
     "Char",
+    "String",
     "Operador Soma",
     "Operador Soma Um",
     "Operador Subtracao",

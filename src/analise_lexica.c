@@ -85,6 +85,8 @@ struct container_lexico* obter_tokens(char *p_caminho)
     tabela_de_simbolos->inicio = NULL;
     tabela_de_simbolos->atual = NULL;
     
+    int n_strings = 1;
+    
     for (int i = 0; i < arq->tamanho; i++)
     {
         // Checa comentários definidos por //
@@ -105,6 +107,38 @@ struct container_lexico* obter_tokens(char *p_caminho)
             coluna = 0;
             linha  = linha + 1;
             continue;
+        }
+        
+        if(arq->conteudo[i] == '\"')
+        {
+            i++;
+            int col_temp = coluna;
+            
+            while (arq->conteudo[i] != '\"') {
+                append(buffer, arq->conteudo[i]);
+                coluna++;
+                i++;
+            }
+            
+            char secBuffer[20] = "string";
+            char int_string[20];
+            sprintf(int_string, "%d", n_strings);
+            strcat(secBuffer, int_string);
+            
+            struct token *token = malloc(sizeof(struct token));
+            token->tipo_lexema = LEXEMA_STRING;
+            token->simbolo = obter_simbolo(tabela_de_simbolos, secBuffer, buffer);
+            token->linha = linha;
+            token->coluna = col_temp;
+
+            n_strings++;
+            i++;
+            
+            inserir_token(lista_de_tokens, token);
+            
+            clean(&secBuffer);œ
+            clean(&buffer);
+            
         }
         
         if(isdigit(arq->conteudo[i]))
