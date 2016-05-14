@@ -75,6 +75,9 @@ struct container_lexico* obter_tokens(char *p_caminho)
     char *buffer;
     clean(&buffer);
     
+    char *nameBuffer;
+    clean(&nameBuffer);
+    
     // Lista de Tokens
     struct lista_de_tokens *lista_de_tokens = malloc(sizeof(struct lista_de_tokens));
     lista_de_tokens->inicio = NULL;
@@ -85,7 +88,7 @@ struct container_lexico* obter_tokens(char *p_caminho)
     tabela_de_simbolos->inicio = NULL;
     tabela_de_simbolos->atual = NULL;
     
-    int n_strings = 1;
+    int n_strings = 0;
     
     for (int i = 0; i < arq->tamanho; i++)
     {
@@ -102,32 +105,29 @@ struct container_lexico* obter_tokens(char *p_caminho)
         }
         
         // Checa quebras de linha, incrementa o número de linhas e reseta a coluna
-        if(arq->conteudo[i] == '\n')
+        else if(arq->conteudo[i] == '\n')
         {
             coluna = 0;
             linha  = linha + 1;
             continue;
         }
         
-        if(arq->conteudo[i] == '\"')
+        else if(arq->conteudo[i] == '"')
         {
             i++;
             int col_temp = coluna;
             
-            while (arq->conteudo[i] != '\"') {
+            while (arq->conteudo[i] != '\"' && arq->conteudo[i] != '\0') {
                 append(buffer, arq->conteudo[i]);
                 coluna++;
                 i++;
             }
             
-            char secBuffer[20] = "string";
-            char int_string[20];
-            sprintf(int_string, "%d", n_strings);
-            strcat(secBuffer, int_string);
+            sprintf(nameBuffer, "string%d", n_strings);
             
             struct token *token = malloc(sizeof(struct token));
             token->tipo_lexema = LEXEMA_STRING;
-            token->simbolo = obter_simbolo(tabela_de_simbolos, secBuffer, buffer);
+            token->simbolo = obter_simbolo(tabela_de_simbolos, nameBuffer, buffer);
             token->linha = linha;
             token->coluna = col_temp;
 
@@ -136,12 +136,12 @@ struct container_lexico* obter_tokens(char *p_caminho)
             
             inserir_token(lista_de_tokens, token);
             
-            clean(&secBuffer);œ
+            clean(&nameBuffer);
             clean(&buffer);
             
         }
         
-        if(isdigit(arq->conteudo[i]))
+        else if(isdigit(arq->conteudo[i]))
         {
             append(buffer, arq->conteudo[i]);
             int col_temp = coluna;
@@ -168,7 +168,7 @@ struct container_lexico* obter_tokens(char *p_caminho)
             clean(&buffer);
         }
         
-        if(arq->conteudo[i] == '_' || isalnum(arq->conteudo[i]))
+        else if(arq->conteudo[i] == '_' || isalnum(arq->conteudo[i]))
         {
             append(buffer, arq->conteudo[i]);
             int col_temp = coluna;
@@ -194,7 +194,7 @@ struct container_lexico* obter_tokens(char *p_caminho)
 
         }
         
-        if(ispunct(arq->conteudo[i]))
+        else if(ispunct(arq->conteudo[i]))
         {
             append(buffer, arq->conteudo[i]);
             
