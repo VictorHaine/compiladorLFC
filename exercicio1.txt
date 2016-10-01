@@ -1,0 +1,13 @@
+
+// C
+y = m;
+
+do {
+	y = y * m;
+	m = m - 1;
+} while ( m > 1 );
+
+01  y = m
+02  y = y * n
+03  m = m - 1
+04  if m > 1 goto 2
