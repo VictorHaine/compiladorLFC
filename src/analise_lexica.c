@@ -21,7 +21,7 @@ void append(char *s, char c)
     if(s == NULL)
         return;
     
-    for (;*s;s++);
+    for (;*s;s+=1);
     
     *s++ = c; 
     *s++ = 0;
